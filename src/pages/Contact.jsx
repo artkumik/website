@@ -4,31 +4,26 @@ function Contact() {
   const contactInfo = [
     {
       type: 'Email',
-      icon: '📧',
       value: 'artkumik@gmail.com',
       link: 'mailto:artkumik@gmail.com'
     },
     {
       type: 'Phone',
-      icon: '📱',
       value: '+1 (727) 251-1777',
       link: 'tel:+17272511777'
     },
     {
       type: 'GitHub',
-      icon: '💻',
       value: 'github.com/artkumik',
       link: 'https://github.com/artkumik'
     },
     {
       type: 'LinkedIn',
-      icon: '💼',
       value: 'linkedin.com/in/artur-kumik-8a9a88236/',
       link: 'https://linkedin.com/in/artur-kumik-8a9a88236/'
     },
     {
       type: 'Location',
-      icon: '📍',
       value: 'Palm Harbor, FL, USA',
       link: '#'
     }
@@ -60,7 +55,7 @@ function Contact() {
 
         <div className="resume-download">
           <button onClick={handleResumeDownload} className="resume-btn">
-            📄 Download Resume
+            Download Resume
           </button>
         </div>
 
@@ -73,7 +68,6 @@ function Contact() {
               target={contact.link.startsWith('http') ? '_blank' : '_self'}
               rel={contact.link.startsWith('http') ? 'noopener noreferrer' : ''}
             >
-              <div className="contact-icon">{contact.icon}</div>
               <h3>{contact.type}</h3>
               <p>{contact.value}</p>
             </a>

@@ -62,7 +62,7 @@ function Experience() {
                 </div>
               </div>
               
-              <p className="exp-location">📍 {exp.location}</p>
+              <p className="exp-location">{exp.location}</p>
               
               <ul className="exp-description">
                 {exp.description.map((item, index) => (

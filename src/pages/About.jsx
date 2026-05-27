@@ -58,7 +58,6 @@ function About() {
         <div className="certifications-list">
           {certifications.map((cert, index) => (
             <div key={index} className="cert-item">
-              <span className="cert-badge">✓</span>
               <span>{cert}</span>
             </div>
           ))}

@@ -37,11 +37,13 @@ function Publications() {
       <h1 className="page-title">Publications</h1>
       
       <section className="publications-section">
-        <div className="publications-grid">
+        <div className="publications-list">
           {publications.map((pub) => (
-            <div key={pub.id} className="publication-card">
-              <div className="pub-year">{pub.year}</div>
-              <h3 className="pub-title">{pub.title}</h3>
+            <div key={pub.id} className="publication-item">
+              <div className="pub-header">
+                <span className="pub-year">{pub.year}</span>
+                <h3 className="pub-title">{pub.title}</h3>
+              </div>
               <p className="pub-authors">{pub.authors}</p>
               <p className="pub-venue">{pub.publication}</p>
               {pub.note && <p className="pub-note">{pub.note}</p>}
