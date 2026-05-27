@@ -5,93 +5,103 @@
 .publications-list {
   display: flex;
   flex-direction: column;
+  gap: 3rem;
+}
+
+.year-group {
+  display: flex;
+  gap: 2rem;
+}
+
+.year-heading {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  opacity: 0.5;
+  margin: 0;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.year-publications {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 
 .publication-item {
-  border-bottom: 1px solid #333333;
   padding-bottom: 2rem;
+  border-bottom: 1px solid #333333;
 }
 
 .publication-item:last-child {
   border-bottom: none;
-}
-
-.pub-header {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-  align-items: flex-start;
-}
-
-.pub-year {
-  display: inline-block;
-  background: transparent;
-  color: #e0e0e0;
-  padding: 0;
-  border-radius: 0;
-  font-size: 0.85rem;
-  font-weight: 700;
-  opacity: 0.7;
-  white-space: nowrap;
-  flex-shrink: 0;
+  padding-bottom: 0;
 }
 
 .pub-title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #e0e0e0;
-  margin: 0;
-  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
   line-height: 1.4;
-  flex: 1;
 }
 
 .pub-authors {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #e0e0e0;
-  opacity: 0.8;
-  margin-bottom: 0.3rem;
-  font-style: italic;
+  opacity: 0.7;
+  margin: 0 0 0.3rem 0;
 }
 
 .pub-venue {
   font-size: 0.85rem;
   color: #e0e0e0;
-  opacity: 0.8;
-  margin-bottom: 0.3rem;
+  opacity: 0.6;
+  margin: 0 0 0.3rem 0;
 }
 
 .pub-note {
   font-size: 0.8rem;
   color: #e0e0e0;
-  opacity: 0.7;
-  margin-bottom: 0.8rem;
+  opacity: 0.5;
+  margin: 0 0 0.8rem 0;
 }
 
 .pub-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
+  margin-top: 0.8rem;
 }
 
 .pub-link {
   color: #e0e0e0;
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
   transition: opacity 0.2s ease;
+  border-bottom: 1px solid #333333;
+  padding-bottom: 1px;
 }
 
 .pub-link:hover {
-  opacity: 0.7;
+  opacity: 1;
+  border-bottom-color: #e0e0e0;
 }
 
 @media (max-width: 768px) {
-  .pub-header {
+  .year-group {
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 1rem;
+  }
+
+  .year-heading {
+    min-width: auto;
   }
 
   .pub-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 }
