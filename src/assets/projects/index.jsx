@@ -1,0 +1,1 @@
+export { default as londonWeather } from './london-weather.png';

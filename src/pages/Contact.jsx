@@ -3,6 +3,7 @@ import './Contact.css';
 function Contact() {
   const networks = [
     { label: 'Email', value: 'artkumik@gmail.com', url: 'mailto:artkumik@gmail.com' },
+    { label: 'Phone', value: '+1 (727) 251-1777', url: 'tel:+17272511777' },
     { label: 'LinkedIn', value: 'linkedin.com/in/artur-kumik', url: 'https://linkedin.com/in/artur-kumik-8a9a88236/' },
     { label: 'GitHub', value: 'github.com/artkumik', url: 'https://github.com/artkumik' }
   ];
@@ -39,7 +40,7 @@ function Contact() {
                   target={net.url.startsWith('http') ? '_blank' : '_self'}
                   rel={net.url.startsWith('http') ? 'noopener noreferrer' : ''}
                 >
-                  {net.value} ↗
+                  {net.value} {net.url.startsWith('http') ? '↗' : ''}
                 </a>
               </div>
             </div>

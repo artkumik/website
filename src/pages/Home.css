@@ -32,7 +32,7 @@
 
 .hero-subtitle {
   font-size: 0.95rem;
-  color: #888888;
+  color: #a0a0a0;
   margin: 0 0 1.25rem 0;
   font-weight: 400;
 }
@@ -47,7 +47,7 @@
 }
 
 .hero-link {
-  color: #666666;
+  color: #a0a0a0;
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 400;
@@ -59,7 +59,7 @@
 }
 
 .hero-link.meta-link {
-  color: #444444;
+  color: #808080;
   cursor: default;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .section h2 {
-  color: #666666;
+  color: #909090;
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -79,7 +79,7 @@
 }
 
 .about-text {
-  color: #b0b0b0;
+  color: #c0c0c0;
   line-height: 1.6;
   font-size: 0.95rem;
   margin: 0;
@@ -187,37 +187,35 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Bottom Actions Navigation Links */
-.hero-buttons {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 0;
+/* Minimalist Funnel Link */
+.next-step-container {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
-.btn {
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 400;
-  transition: color 0.2s ease;
-}
-
-.btn-primary {
+.minimal-nav-link {
   color: #ffffff;
-  border-bottom: 1px solid #333333;
-  padding-bottom: 2px;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-bottom: 1px solid #262626;
+  padding-bottom: 4px;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
-  color: #b0b0b0;
+.minimal-nav-link span {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.minimal-nav-link:hover {
   border-bottom-color: #ffffff;
 }
 
-.btn-secondary {
-  color: #666666;
-}
-
-.btn-secondary:hover {
-  color: #ffffff;
+.minimal-nav-link:hover span {
+  transform: translateX(6px);
 }
 
 /* Mobile Responsiveness Viewports Overrides */

@@ -1,3 +1,4 @@
+import * as ProjectImages from '../assets/projects';
 import './Projects.css';
 
 function Projects() {
@@ -9,9 +10,9 @@ function Projects() {
       technologies: ['Python', 'TensorFlow', 'YOLO v4', 'HPC'],
       timeline: 'Jan 2025 - Present',
       type: 'Research',
-      image: '/images/yolo-detection.jpg',
-      codeUrl: 'https://github.com/artkumik', 
-      demoUrl: '#' 
+      // Using the barrel import, with a fallback string just in case
+      image: ProjectImages.yoloDetection || '/images/yolo-detection.jpg',
+      url: 'https://github.com/artkumik'
     },
     {
       id: 4,
@@ -20,9 +21,8 @@ function Projects() {
       technologies: ['IoT', 'Mobile', 'Product Design'],
       timeline: 'Oct 2021 - Present',
       type: 'Entrepreneurship',
-      image: '/images/hydrodisc-render.jpg',
-      codeUrl: '#',
-      demoUrl: '#'
+      image: ProjectImages.hydrodiscRender || '/images/hydrodisc-render.jpg',
+      url: '#'
     },
     {
       id: 3,
@@ -31,9 +31,8 @@ function Projects() {
       technologies: ['Python', 'sklearn', 'Pandas'],
       timeline: 'Academic',
       type: 'Data Analysis',
-      image: '/images/weather-plots.jpg',
-      codeUrl: 'https://github.com/artkumik',
-      demoUrl: '#'
+      image: ProjectImages.londonWeather || '../assets/projects/london-weather.png',
+      url: 'https://github.com/artkumik'
     },
     {
       id: 2,
@@ -42,9 +41,8 @@ function Projects() {
       technologies: ['Python', 'Pygame', 'NumPy'],
       timeline: 'Academic',
       type: 'AI/ML',
-      image: '/images/rl-gameplay.jpg',
-      codeUrl: 'https://github.com/artkumik',
-      demoUrl: '#'
+      image: ProjectImages.rlGameplay || '/images/rl-gameplay.jpg',
+      url: 'https://github.com/artkumik'
     }
   ];
 
@@ -59,50 +57,53 @@ function Projects() {
 
         <div className="projects-grid">
           {projects.map((project) => (
-            <div key={project.id} className="project-card">
-              
-              <div className="project-image-wrapper">
-                <img 
-                  src={project.image} 
-                  alt={`${project.title} preview`} 
-                  className="project-img" 
-                  loading="lazy"
-                />
-              </div>
-
-              <div className="project-content">
-                <div>
-                  <div className="project-card-header">
-                    <h3 className="project-title">{project.title}</h3>
-                    <div className="project-meta">
-                      <span className="project-type">{project.type}</span>
-                      <span className="project-timeline">{project.timeline}</span>
-                    </div>
-                  </div>
-                  <p className="project-description">{project.description}</p>
-                </div>
+            <a
+              key={project.id}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-card-link"
+            >
+              <div className="project-card">
                 
-                <div className="project-footer-row">
+                <div className="project-image-wrapper">
+                  <img 
+                    src={project.image} 
+                    alt={`${project.title} preview`} 
+                    className="project-img" 
+                    loading="lazy"
+                    /* Added inline styles to force the image to fit the box cleanly */
+                    style={{ 
+                      width: '100%', 
+                      height: '100%', 
+                      objectFit: 'cover', 
+                      objectPosition: 'center',
+                      display: 'block'
+                    }}
+                  />
+                </div>
+
+                <div className="project-content">
+                  <div>
+                    <div className="project-card-header">
+                      <h3 className="project-title">{project.title}</h3>
+                      <div className="project-meta">
+                        <span className="project-type">{project.type}</span>
+                        <span className="project-timeline">{project.timeline}</span>
+                      </div>
+                    </div>
+                    <p className="project-description">{project.description}</p>
+                  </div>
+                  
                   <div className="project-tech">
                     {project.technologies.map((tech, index) => (
                       <span key={index} className="tech-tag">{tech}</span>
                     ))}
                   </div>
-
-                  {(project.codeUrl !== '#' || project.demoUrl !== '#') && (
-                    <div className="project-action-links">
-                      {project.codeUrl !== '#' && (
-                        <a href={project.codeUrl} className="proj-action-link" target="_blank" rel="noopener noreferrer">Code ↗</a>
-                      )}
-                      {project.demoUrl !== '#' && (
-                        <a href={project.demoUrl} className="proj-action-link" target="_blank" rel="noopener noreferrer">Demo ↗</a>
-                      )}
-                    </div>
-                  )}
                 </div>
+                
               </div>
-              
-            </div>
+            </a>
           ))}
         </div>
       </section>

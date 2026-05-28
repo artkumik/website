@@ -1,11 +1,11 @@
 /* Section Base & Layout Wrapper */
 .contact-section {
-  margin-top: 1.5rem;
+  margin-top: 0.6rem;
 }
 
 .contact-intro {
   font-size: 0.95rem;
-  color: #b0b0b0;
+  color: #c0c0c0;
   max-width: 650px;
   margin-bottom: 3rem;
   line-height: 1.6;
@@ -34,7 +34,7 @@
 }
 
 .contact-row h3 {
-  color: #666666;
+  color: #909090;
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -58,12 +58,12 @@
 }
 
 .contact-action-link:hover {
-  color: #b0b0b0;
+  color: #ffffff;
   border-bottom-color: #ffffff;
 }
 
 .contact-status-text {
-  color: #e0e0e0;
+  color: #d0d0d0;
   font-size: 0.95rem;
   line-height: 1.5;
 }

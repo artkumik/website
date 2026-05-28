@@ -5,11 +5,11 @@ function Publications() {
     {
       id: 2,
       title: 'Reddit Project',
-      authors: 'Artur Kumik', // Added fallback name for consistency
+      authors: 'Artur Kumik',
       publication: 'University of Florida Journal of Undergraduate Research, Vol. 28',
       year: 2026,
       url: '#',
-      pdfUrl: '#',
+      pdfUrl: 'https://example.com/reddit-paper.pdf',
       note: 'In Progress'
     },
     {
@@ -18,8 +18,8 @@ function Publications() {
       authors: 'J.P. Fleischer, Julian Dominguez, Artur Kumik, Sargam Thakur, Gregor von Laszewski, Sanjay Ranka',
       publication: 'University of Florida Journal of Undergraduate Research, Vol. 27',
       year: 2025,
-      url: '#',
-      pdfUrl: '#',
+      url: 'https://example.com/yolo-paper',
+      pdfUrl: 'https://example.com/yolo-paper.pdf',
       note: 'November 5, 2025'
     }
   ];
@@ -55,14 +55,14 @@ function Publications() {
                     
                     {/* Render action line container if valid references exist */}
                     {(pub.pdfUrl !== '#' || pub.url !== '#') && (
-                      <div className="pub-links">
+                      <div className="pub-action-links">
                         {pub.pdfUrl !== '#' && (
-                          <a href={pub.pdfUrl} className="pub-link" target="_blank" rel="noopener noreferrer">
+                          <a href={pub.pdfUrl} className="pub-action-link" target="_blank" rel="noopener noreferrer">
                             PDF ↗
                           </a>
                         )}
                         {pub.url !== '#' && (
-                          <a href={pub.url} className="pub-link" target="_blank" rel="noopener noreferrer">
+                          <a href={pub.url} className="pub-action-link" target="_blank" rel="noopener noreferrer">
                             Read More ↗
                           </a>
                         )}

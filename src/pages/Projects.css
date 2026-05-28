@@ -1,11 +1,11 @@
 /* Section Base & Intro */
 .projects-section {
-  margin-top: 1.5rem;
+  margin-top: 0.6rem;
 }
 
 .projects-intro {
   font-size: 0.95rem;
-  color: #b0b0b0;
+  color: #c0c0c0;
   max-width: 700px;
   margin-bottom: 2.5rem;
   line-height: 1.6;
@@ -16,6 +16,14 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.1rem;
+}
+
+/* Project Card Link Wrapper */
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Tighter Minimalist Card Frame */
@@ -29,12 +37,14 @@
   justify-content: space-between;
   transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
   overflow: hidden;
+  height: 100%;
 }
 
-.project-card:hover {
+.project-card-link:hover .project-card {
   border-color: #333333;
   background: rgba(255, 255, 255, 0.01);
   transform: translateY(-2px);
+  cursor: pointer;
 }
 
 .project-content {
@@ -89,12 +99,12 @@
   display: flex;
   gap: 0.6rem;
   font-size: 0.75rem;
-  color: #555555;
+  color: #909090;
 }
 
 .project-type {
   font-weight: 500;
-  color: #777777;
+  color: #a0a0a0;
 }
 
 .project-timeline {
@@ -111,20 +121,14 @@
   flex-grow: 1;
 }
 
-/* Card Footer Action System */
-.project-footer-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: auto;
-}
-
 /* Mini Technical Stack Tags */
 .project-tech {
   display: flex;
   gap: 0.35rem;
   flex-wrap: wrap;
+  width: 100%;
+  margin-top: auto;
+  justify-content: center;
 }
 
 .tech-tag {
@@ -138,31 +142,9 @@
   font-weight: 400;
 }
 
-.project-card:hover .tech-tag {
+.project-card-link:hover .tech-tag {
   border-color: #262626;
   color: #999999;
-}
-
-/* Action Hyperlinks */
-.project-action-links {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.proj-action-link {
-  color: #555555;
-  text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 400;
-  transition: color 0.2s ease;
-}
-
-.project-card:hover .proj-action-link {
-  color: #777777;
-}
-
-.proj-action-link:hover {
-  color: #ffffff !important;
 }
 
 /* Responsive Overrides scaling backwards */

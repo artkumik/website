@@ -8,14 +8,8 @@ function Home() {
     { value: '2', label: 'Academic Publications' }
   ];
 
-  const researchInterests = [
-    'Computer Vision (Object Detection)',
-    'Intelligent Transportation Systems (ITS)',
-    'Reinforcement Learning',
-    'High-Performance Computing (HPC)'
-  ];
-
   const skills = [
+    { category: 'Research Domains', items: 'Computer Vision (Object Detection), Intelligent Transportation Systems (ITS), Reinforcement Learning, High-Performance Computing (HPC)' },
     { category: 'Programming & Libraries', items: 'Python, SQL, Power BI, R, pandas, PyTorch, TensorFlow, Linux/Unix, Docker, HTML/CSS, Java' },
     { category: 'Analytical & Methodological', items: 'Data Analysis, Machine Learning, Deep Learning, Data Visualization, Business Analytics, Statistics' },
     { category: 'Languages', items: 'Polish, English' }
@@ -28,44 +22,18 @@ function Home() {
     { title: 'Power BI Essential Training', issuer: 'LinkedIn' }
   ];
 
-  const connectionLinks = [
-    { name: 'GitHub', url: 'https://github.com/artkumik', isExternal: true },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/artur-kumik-8a9a88236/', isExternal: true },
-    { name: 'Email', url: 'mailto:artkumik@gmail.com', isExternal: false },
-    { name: 'Phone', url: 'tel:+17272511777', isExternal: false },
-    { name: 'Palm Harbor, FL', url: null, isExternal: false, isMeta: true }
-  ];
-
   return (
     <div className="home">
       <div className="page-container">
         
-        {/* Strictly Left-Aligned Hero Profile Layout */}
         <header className="hero">
           <h1 className="hero-title">Artur Kumik</h1>
           <p className="hero-subtitle">Data Science | Machine Learning | Research</p>
           
           <div className="hero-contact-row">
-            {connectionLinks.map((link, index) => {
-              if (link.isMeta || !link.url) {
-                return (
-                  <span key={index} className="hero-link meta-link">
-                    {link.name}
-                  </span>
-                );
-              }
-              return (
-                <a 
-                  key={index}
-                  href={link.url}
-                  className="hero-link"
-                  target={link.isExternal ? "_blank" : "_self"}
-                  rel={link.isExternal ? "noopener noreferrer" : ""}
-                >
-                  {link.name}
-                </a>
-              );
-            })}
+            <span className="hero-link meta-link">
+              Palm Harbor, FL
+            </span>
           </div>
         </header>
 
@@ -86,16 +54,7 @@ function Home() {
         </section>
 
         <section className="section">
-          <h2>Research Focus</h2>
-          <div className="interests-row">
-            {researchInterests.map((interest, index) => (
-              <span key={index} className="interest-tag">{interest}</span>
-            ))}
-          </div>
-        </section>
-
-        <section className="section">
-          <h2>Skills</h2>
+          <h2>Technical & Research Profile</h2>
           <div className="skills-grid">
             {skills.map((skill, index) => (
               <div key={index} className="skill-row">
@@ -118,13 +77,12 @@ function Home() {
           </div>
         </section>
 
-        <section className="section">
-          <h2>Navigation</h2>
-          <div className="hero-buttons">
-            <a href="/projects" className="btn btn-primary">View Projects</a>
-            <a href="/contact" className="btn btn-secondary">Get In Touch</a>
-          </div>
-        </section>
+        {/* Minimalist Funnel Link */}
+        <div className="next-step-container">
+          <a href="/projects" className="minimal-nav-link">
+            View Projects <span>&rarr;</span>
+          </a>
+        </div>
         
       </div>
     </div>

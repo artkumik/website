@@ -13,6 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 /* Polished Minimalist Initials Logo Style */
@@ -23,10 +24,11 @@
   text-decoration: none;
   letter-spacing: 1px;
   transition: color 0.2s ease;
+  z-index: 101;
 }
 
 .nav-logo:hover {
-  color: #888888;
+  color: #b0b0b0;
 }
 
 .nav-menu {
@@ -38,7 +40,7 @@
 }
 
 .nav-link {
-  color: #666666;
+  color: #a0a0a0;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 400;
@@ -55,16 +57,82 @@
   font-weight: 500;
 }
 
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 1.25rem 1.5rem;
   }
 
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-container {
+    flex-wrap: wrap;
+  }
+
   .nav-menu {
-    gap: 1.25rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #000000;
+    border-bottom: 1px solid #161616;
+    flex-direction: column;
+    gap: 0;
+    padding: 1.5rem 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 0;
+  }
+
+  .nav-menu.active {
+    max-height: 300px;
+  }
+
+  .nav-menu li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #161616;
+  }
+
+  .nav-menu li:last-child {
+    border-bottom: none;
   }
 
   .nav-link {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    display: block;
   }
 }
