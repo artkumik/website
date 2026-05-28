@@ -1,3 +1,4 @@
+/* Section Base Layout */
 .publications-section {
   margin-top: 1.5rem;
 }
@@ -5,103 +6,111 @@
 .publications-list {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 3.5rem;
 }
 
+/* Structural Year Column Blocks */
 .year-group {
-  display: flex;
+  display: grid;
+  grid-template-columns: 100px 1fr;
   gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #161616;
+}
+
+.year-group:first-child {
+  border-top: none;
+  padding-top: 0;
 }
 
 .year-heading {
-  color: #e0e0e0;
-  font-size: 1.2rem;
-  font-weight: 700;
-  opacity: 0.5;
+  color: #888888;
+  font-size: 1.1rem;
+  font-weight: 500;
   margin: 0;
-  min-width: 80px;
-  flex-shrink: 0;
+  letter-spacing: 0.5px;
+  font-variant-numeric: tabular-nums;
 }
 
 .year-publications {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .publication-item {
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #333333;
+  display: flex;
+  flex-direction: column;
 }
 
-.publication-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
+/* Typography Hierarchy */
 .pub-title {
-  font-size: 1rem;
-  color: #e0e0e0;
+  font-size: 1.1rem;
+  color: #ffffff;
   margin: 0 0 0.5rem 0;
   font-weight: 600;
+  letter-spacing: -0.2px;
   line-height: 1.4;
 }
 
 .pub-authors {
-  font-size: 0.85rem;
-  color: #e0e0e0;
-  opacity: 0.7;
+  font-size: 0.9rem;
+  color: #b0b0b0;
   margin: 0 0 0.3rem 0;
+  line-height: 1.5;
 }
 
 .pub-venue {
   font-size: 0.85rem;
-  color: #e0e0e0;
-  opacity: 0.6;
-  margin: 0 0 0.3rem 0;
+  color: #666666;
+  margin: 0 0 0.25rem 0;
+  font-style: italic;
 }
 
 .pub-note {
   font-size: 0.8rem;
-  color: #e0e0e0;
-  opacity: 0.5;
-  margin: 0 0 0.8rem 0;
+  color: #444444;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: 0.2px;
 }
 
+/* Inline Navigation Action Links */
 .pub-links {
   display: flex;
-  gap: 1rem;
-  margin-top: 0.8rem;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
 }
 
 .pub-link {
-  color: #e0e0e0;
+  color: #888888;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 0.85rem;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-  border-bottom: 1px solid #333333;
-  padding-bottom: 1px;
+  transition: color 0.2s ease;
 }
 
 .pub-link:hover {
-  opacity: 1;
-  border-bottom-color: #e0e0e0;
+  color: #ffffff;
 }
 
+/* Responsive Overrides */
 @media (max-width: 768px) {
   .year-group {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 1rem;
+    padding-top: 1.5rem;
   }
 
   .year-heading {
-    min-width: auto;
+    font-size: 1.2rem;
+    color: #ffffff;
+  }
+
+  .year-publications {
+    gap: 2rem;
   }
 
   .pub-title {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 }

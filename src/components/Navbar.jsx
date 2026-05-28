@@ -11,10 +11,9 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link to="/" className="nav-logo">Artur Kumik</Link>
+        <Link to="/" className="nav-logo">AK</Link>
         <ul className="nav-menu">
           <li><Link to="/" className={isActive('/')}>Home</Link></li>
-          <li><Link to="/about" className={isActive('/about')}>About</Link></li>
           <li><Link to="/experience" className={isActive('/experience')}>Experience</Link></li>
           <li><Link to="/projects" className={isActive('/projects')}>Projects</Link></li>
           <li><Link to="/publications" className={isActive('/publications')}>Publications</Link></li>

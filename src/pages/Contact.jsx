@@ -1,79 +1,52 @@
 import './Contact.css';
 
 function Contact() {
-  const contactInfo = [
-    {
-      type: 'Email',
-      value: 'artkumik@gmail.com',
-      link: 'mailto:artkumik@gmail.com'
-    },
-    {
-      type: 'Phone',
-      value: '+1 (727) 251-1777',
-      link: 'tel:+17272511777'
-    },
-    {
-      type: 'GitHub',
-      value: 'github.com/artkumik',
-      link: 'https://github.com/artkumik'
-    },
-    {
-      type: 'LinkedIn',
-      value: 'linkedin.com/in/artur-kumik-8a9a88236/',
-      link: 'https://linkedin.com/in/artur-kumik-8a9a88236/'
-    },
-    {
-      type: 'Location',
-      value: 'Palm Harbor, FL, USA',
-      link: '#'
-    }
+  const networks = [
+    { label: 'Email', value: 'artkumik@gmail.com', url: 'mailto:artkumik@gmail.com' },
+    { label: 'LinkedIn', value: 'linkedin.com/in/artur-kumik', url: 'https://linkedin.com/in/artur-kumik-8a9a88236/' },
+    { label: 'GitHub', value: 'github.com/artkumik', url: 'https://github.com/artkumik' }
   ];
-
-  const handleResumeDownload = () => {
-    // Create a download link for resume
-    // You'll need to add your resume PDF to the public folder
-    const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Artur_Kumik_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
 
   return (
     <div className="page-container">
-      <h1 className="page-title">Get In Touch</h1>
+      <h1 className="page-title">Connect</h1>
       
-      <div className="contact-content">
-        <section className="section">
-          <h2>Let's Connect</h2>
-          <p>
-            I'm always open to discussing research opportunities, internships, or collaboration on data science projects. 
-            Feel free to reach out through any of the channels below!
-          </p>
-        </section>
+      <section className="contact-section">
+        <p className="contact-intro">
+          I am always open to discussing new machine learning pipelines, research opportunities, or technical system implementations. Reach out via any of the channels below.
+        </p>
 
-        <div className="resume-download">
-          <button onClick={handleResumeDownload} className="resume-btn">
-            Download Resume
-          </button>
-        </div>
+        <div className="contact-grid">
+          
+          {/* Availability Status Matrix Row */}
+          <div className="contact-row">
+            <h3>Status</h3>
+            <div className="contact-content-block">
+              <span className="contact-status-text">
+                Based in Palm Harbor, FL — Open to relocation and technical research collaborations.
+              </span>
+            </div>
+          </div>
 
-        <div className="contact-links">
-          {contactInfo.map((contact, index) => (
-            <a 
-              key={index}
-              href={contact.link} 
-              className="contact-card"
-              target={contact.link.startsWith('http') ? '_blank' : '_self'}
-              rel={contact.link.startsWith('http') ? 'noopener noreferrer' : ''}
-            >
-              <h3>{contact.type}</h3>
-              <p>{contact.value}</p>
-            </a>
+          {/* Network Loops Row */}
+          {networks.map((net, index) => (
+            <div key={index} className="contact-row">
+              <h3>{net.label}</h3>
+              <div className="contact-content-block">
+                <a 
+                  href={net.url} 
+                  className="contact-action-link"
+                  target={net.url.startsWith('http') ? '_blank' : '_self'}
+                  rel={net.url.startsWith('http') ? 'noopener noreferrer' : ''}
+                >
+                  {net.value} ↗
+                </a>
+              </div>
+            </div>
           ))}
+
         </div>
-      </div>
+      </section>
     </div>
   );
 }

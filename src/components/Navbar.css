@@ -1,59 +1,70 @@
 .navbar {
   background: #000000;
-  padding: 1rem 2rem;
+  padding: 1.75rem 2rem;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #161616;
 }
 
 .nav-container {
-  max-width: 900px;
+  max-width: 850px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Polished Minimalist Initials Logo Style */
 .nav-logo {
-  color: #e0e0e0;
-  font-size: 1.2rem;
-  font-weight: 400;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
 }
 
 .nav-logo:hover {
-  opacity: 0.7;
+  color: #888888;
 }
 
 .nav-menu {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.75rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .nav-link {
-  color: #e0e0e0;
+  color: #666666;
   text-decoration: none;
-  transition: all 0.2s ease;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 400;
-  position: relative;
-  padding-bottom: 0.2rem;
-  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease;
+  padding: 0.25rem 0;
 }
 
 .nav-link:hover {
-  opacity: 0.7;
+  color: #ffffff;
 }
 
 .nav-link.active {
-  border-bottom-color: #e1dcc9;
+  color: #ffffff;
+  font-weight: 500;
 }
 
-.nav-link::after {
-  content: none;
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .nav-menu {
+    gap: 1.25rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
 }

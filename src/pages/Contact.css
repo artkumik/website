@@ -1,70 +1,78 @@
-.contact-content {
-  max-width: 800px;
-  margin: 0 auto;
+/* Section Base & Layout Wrapper */
+.contact-section {
+  margin-top: 1.5rem;
 }
 
-.resume-download {
-  display: flex;
-  justify-content: center;
-  margin: 1.5rem 0 2rem 0;
-}
-
-.resume-btn {
-  padding: 0.8rem 2rem;
-  background: transparent;
-  color: #e0e0e0;
-  border: 1px solid #333333;
-  border-radius: 0;
+.contact-intro {
   font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  color: #b0b0b0;
+  max-width: 650px;
+  margin-bottom: 3rem;
+  line-height: 1.6;
 }
 
-.resume-btn:hover {
-  border-color: #e0e0e0;
-  background: rgba(225, 220, 201, 0.05);
-}
-
-.contact-links {
+/* Structural Data Grid Matrix */
+.contact-grid {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-top: 2rem;
+  max-width: 750px;
 }
 
-.contact-card {
-  background: transparent;
-  padding: 1rem 0;
-  border-radius: 0;
-  border-bottom: 1px solid #333333;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.2s ease;
-  text-align: left;
-  position: relative;
-  overflow: hidden;
+/* Consolidated Meta Rows */
+.contact-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #141414;
 }
 
-.contact-card:last-child {
+.contact-row:last-child {
   border-bottom: none;
 }
 
-.contact-card:hover {
-  border-color: #e0e0e0;
-}
-
-.contact-card h3 {
-  color: #e0e0e0;
-  margin: 0 0 0.3rem 0;
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.contact-card p {
-  color: #e0e0e0;
-  opacity: 0.8;
-  font-size: 0.9rem;
-  line-height: 1.4;
+.contact-row h3 {
+  color: #666666;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   margin: 0;
+}
+
+.contact-content-block {
+  margin: 0;
+}
+
+/* Minimalist Action Link Details */
+.contact-action-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-bottom: 1px solid #262626;
+  padding-bottom: 2px;
+  transition: all 0.2s ease;
+}
+
+.contact-action-link:hover {
+  color: #b0b0b0;
+  border-bottom-color: #ffffff;
+}
+
+.contact-status-text {
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Responsive Tweak Shifts */
+@media (max-width: 768px) {
+  .contact-row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+    padding-bottom: 1.25rem;
+  }
 }

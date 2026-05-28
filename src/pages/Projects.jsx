@@ -9,28 +9,9 @@ function Projects() {
       technologies: ['Python', 'TensorFlow', 'YOLO v4', 'HPC'],
       timeline: 'Jan 2025 - Present',
       type: 'Research',
-      color: '#FF6B6B',
-      icon: '🎯'
-    },
-    {
-      id: 2,
-      title: 'Tic Tac Toe RL',
-      description: 'Reinforcement Learning algorithm with Pygame interface for playing against AI.',
-      technologies: ['Python', 'Pygame', 'NumPy'],
-      timeline: 'Academic',
-      type: 'AI/ML',
-      color: '#4ECDC4',
-      icon: '🎮'
-    },
-    {
-      id: 3,
-      title: 'London Weather Analysis',
-      description: 'Time series prediction achieving 0.79 R² using Regression Trees and Ada Boosting.',
-      technologies: ['Python', 'sklearn', 'Pandas'],
-      timeline: 'Academic',
-      type: 'Data Analysis',
-      color: '#FFE66D',
-      icon: '📊'
+      image: '/images/yolo-detection.jpg',
+      codeUrl: 'https://github.com/artkumik', 
+      demoUrl: '#' 
     },
     {
       id: 4,
@@ -39,8 +20,31 @@ function Projects() {
       technologies: ['IoT', 'Mobile', 'Product Design'],
       timeline: 'Oct 2021 - Present',
       type: 'Entrepreneurship',
-      color: '#95E1D3',
-      icon: '💧'
+      image: '/images/hydrodisc-render.jpg',
+      codeUrl: '#',
+      demoUrl: '#'
+    },
+    {
+      id: 3,
+      title: 'London Weather Analysis',
+      description: 'Time series prediction achieving 0.79 R² using Regression Trees and Ada Boosting.',
+      technologies: ['Python', 'sklearn', 'Pandas'],
+      timeline: 'Academic',
+      type: 'Data Analysis',
+      image: '/images/weather-plots.jpg',
+      codeUrl: 'https://github.com/artkumik',
+      demoUrl: '#'
+    },
+    {
+      id: 2,
+      title: 'Tic Tac Toe RL',
+      description: 'Reinforcement Learning algorithm with Pygame interface for playing against AI.',
+      technologies: ['Python', 'Pygame', 'NumPy'],
+      timeline: 'Academic',
+      type: 'AI/ML',
+      image: '/images/rl-gameplay.jpg',
+      codeUrl: 'https://github.com/artkumik',
+      demoUrl: '#'
     }
   ];
 
@@ -50,26 +54,54 @@ function Projects() {
       
       <section className="projects-section">
         <p className="projects-intro">
-          I build software and tools to solve problems. Here are some of my projects that showcase my work in data science, machine learning, and product development.
+          An open collection of research initiatives, computer vision benchmarks, and analytical applications exploring machine learning and intelligent systems.
         </p>
 
         <div className="projects-grid">
           {projects.map((project) => (
-            <div key={project.id} className="project-card" style={{ '--card-color': project.color }}>
-              <div className="project-image">{project.icon}</div>
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-description">{project.description}</p>
+            <div key={project.id} className="project-card">
               
-              <div className="project-meta">
-                <span className="project-type">{project.type}</span>
-                <span className="project-timeline">{project.timeline}</span>
+              <div className="project-image-wrapper">
+                <img 
+                  src={project.image} 
+                  alt={`${project.title} preview`} 
+                  className="project-img" 
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="project-content">
+                <div>
+                  <div className="project-card-header">
+                    <h3 className="project-title">{project.title}</h3>
+                    <div className="project-meta">
+                      <span className="project-type">{project.type}</span>
+                      <span className="project-timeline">{project.timeline}</span>
+                    </div>
+                  </div>
+                  <p className="project-description">{project.description}</p>
+                </div>
+                
+                <div className="project-footer-row">
+                  <div className="project-tech">
+                    {project.technologies.map((tech, index) => (
+                      <span key={index} className="tech-tag">{tech}</span>
+                    ))}
+                  </div>
+
+                  {(project.codeUrl !== '#' || project.demoUrl !== '#') && (
+                    <div className="project-action-links">
+                      {project.codeUrl !== '#' && (
+                        <a href={project.codeUrl} className="proj-action-link" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                      )}
+                      {project.demoUrl !== '#' && (
+                        <a href={project.demoUrl} className="proj-action-link" target="_blank" rel="noopener noreferrer">Demo ↗</a>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
               
-              <div className="project-tech">
-                {project.technologies.map((tech, index) => (
-                  <span key={index} className="tech-tag">{tech}</span>
-                ))}
-              </div>
             </div>
           ))}
         </div>
