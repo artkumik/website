@@ -15,16 +15,6 @@ function Projects() {
       url: 'https://github.com/artkumik'
     },
     {
-      id: 4,
-      title: 'Hydrodisc',
-      description: 'Mobile IoT device for water consumption monitoring. Won NGT 360 Competition.',
-      technologies: ['IoT', 'Mobile', 'Product Design'],
-      timeline: 'Oct 2021 - Present',
-      type: 'Entrepreneurship',
-      image: ProjectImages.hydrodiscRender || '/images/hydrodisc-render.jpg',
-      url: '#'
-    },
-    {
       id: 3,
       title: 'London Weather Analysis',
       description: 'Time series prediction achieving 0.79 R² using Regression Trees and Ada Boosting.',
@@ -32,7 +22,7 @@ function Projects() {
       timeline: 'Academic',
       type: 'Data Analysis',
       image: ProjectImages.londonWeather || '../assets/projects/london-weather.png',
-      url: 'https://github.com/artkumik'
+      url: 'https://github.com/artkumik/LondonWeatherAnalysis'
     },
     {
       id: 2,
@@ -42,8 +32,29 @@ function Projects() {
       timeline: 'Academic',
       type: 'AI/ML',
       image: ProjectImages.rlGameplay || '/images/rl-gameplay.jpg',
-      url: 'https://github.com/artkumik'
-    }
+      url: 'https://github.com/artkumik/tictactoe'
+    },
+    // {
+    //   id: 4,
+    //   title: 'Tic-Tac-Toe LLM Arena', 
+    //   description: 'A web application that showcases strategic gameplay with AI-powered players competing in classic Tic-Tac-Toe matches.[cite: 1]',
+    //   technologies: ['Python', 'Flask', 'FastAPI', 'OpenAI', 'JavaScript', 'Bootstrap'], 
+    //   timeline: 'Present',
+    //   type: 'Artificial Intelligence / Web Development',
+    //   image: ProjectImages.tictactoeArenaRender || '/images/tictactoe-arena-render.jpg',
+    //   url: '#'
+    // },
+    // {
+    //   id: 5,
+    //   title: 'Hydrodisc',
+    //   description: 'Mobile IoT device for water consumption monitoring. Won NGT 360 Competition.',
+    //   technologies: ['IoT', 'Mobile', 'Product Design'],
+    //   timeline: 'Oct 2021 - Present',
+    //   type: 'Entrepreneurship',
+    //   image: ProjectImages.hydrodiscRender || '/images/hydrodisc-render.jpg',
+    //   url: '#'
+    // },
+
   ];
 
   return (
@@ -52,7 +63,7 @@ function Projects() {
       
       <section className="projects-section">
         <p className="projects-intro">
-          An open collection of research initiatives, computer vision benchmarks, and analytical applications exploring machine learning and intelligent systems.
+          A collection of research initiatives, computer vision benchmarks, and analytical applications in machine learning and intelligent systems. Select any project to view details.
         </p>
 
         <div className="projects-grid">

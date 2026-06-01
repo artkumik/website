@@ -5,7 +5,7 @@ function Home() {
     { value: '3.73', label: 'Undergraduate GPA' },
     { value: '2+', label: 'Years Research Experience' },
     { value: '$10K', label: 'Venture Grant Funding' },
-    { value: '2', label: 'Academic Publications' }
+    { value: '1', label: 'Academic Publication' }
   ];
 
   const skills = [

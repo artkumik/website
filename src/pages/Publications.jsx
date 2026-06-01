@@ -2,16 +2,16 @@ import './Publications.css';
 
 function Publications() {
   const publications = [
-    {
-      id: 2,
-      title: 'Reddit Project',
-      authors: 'Artur Kumik',
-      publication: 'University of Florida Journal of Undergraduate Research, Vol. 28',
-      year: 2026,
-      url: '#',
-      pdfUrl: 'https://example.com/reddit-paper.pdf',
-      note: 'In Progress'
-    },
+    // {
+    //   id: 2,
+    //   title: 'Reddit Project',
+    //   authors: 'Artur Kumik',
+    //   publication: 'University of Florida Journal of Undergraduate Research, Vol. 28',
+    //   year: 2026,
+    //   url: '#',
+    //   pdfUrl: 'https://example.com/reddit-paper.pdf',
+    //   note: 'In Progress'
+    // },
     {
       id: 1,
       title: 'Battle of the YOLOs - Augmenting and Benchmarking Fisheye Camera YOLO Models for Traffic Intersection Object Detection',

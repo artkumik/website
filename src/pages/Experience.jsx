@@ -19,9 +19,9 @@ function Experience() {
       role: 'Intern',
       company: 'SCC Soft Computer',
       location: 'Clearwater, FL',
-      period: 'May 2025 - Aug 2025',
+      period: 'May 2025 - Aug 2025 / May 2023 - Aug 2023',
       description: [
-        'Administered remote technical support and troubleshooting for critical Laboratory Information Systems (LIS) for 20+ hospitals across the United States',
+        'Administered remote technical support and troubleshooting for critical Laboratory Information Systems (LIS) for 350+ hospitals across the United States',
         'Diagnosed and resolved interface issues on both Linux and Unix-based LIS platforms via remote connection'
       ]
     },
@@ -34,19 +34,20 @@ function Experience() {
       description: [
         'Developed a mobile-integrated device that helps customers monitor water consumption and reduce dehydration through real-time reminders',
         'Won First Place in the NGT 360 Competition (2022-2023), securing $10,000 grant for product development',
-        'Presented solution to Kevin Harrington and other industry leaders at Raymond James',
+        'Presented solution to Shark Tank Judge Kevin Harrington and other industry leaders at Raymond James',
         'Incorporated customer feedback into product, boosting satisfaction by 30% as measured by user surveys'
       ]
     },
     {
       id: 2,
       role: 'Intern',
-      company: 'SCC Soft Computer',
-      location: 'Clearwater, FL',
-      period: 'May 2023 - Aug 2023',
+      company: 'Achieva Credit Union',
+      location: 'Dunedin, FL',
+      period: 'May 2022 - Aug 2022',
       description: [
-        'Administered remote technical support and troubleshooting for critical Laboratory Information Systems (LIS) for 20+ hospitals across the United States',
-        'Diagnosed and resolved interface issues on both Linux and Unix-based LIS platforms via remote connection'
+        'Processed deposits, withdrawals, and other transactions',
+        'Greeted customers and assisted with bank-related inquiries',
+        'Created a positive customer experience through quick and efficient service',
       ]
     }
   ];

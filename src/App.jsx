@@ -7,9 +7,11 @@ import Publications from './pages/Publications';
 import Contact from './pages/Contact'; // Corrected folder placement path
 import './App.css';
 
+
+
 function App() {
   return (
-    <Router>
+    <Router basename="/website">
       <div className="App">
         <Navbar />
         <Routes>
