@@ -26,62 +26,31 @@ function Publications() {
     }
   ];
 
-  // Group publications by year
-  const publicationsByYear = publications.reduce((acc, pub) => {
-    if (!acc[pub.year]) {
-      acc[pub.year] = [];
-    }
-    acc[pub.year].push(pub);
-    return acc;
-  }, {});
-
-  // Sort years in descending order
-  const sortedYears = Object.keys(publicationsByYear).sort((a, b) => b - a);
-
   return (
     <div className="page-container">
       <h1 className="page-title">Publications</h1>
-      
-      <section className="publications-section">
-        <div className="publications-list">
-          {sortedYears.map((year) => (
-            <div key={year} className="year-group">
-              <h2 className="year-heading">{year}</h2>
-              <div className="year-publications">
-                {publicationsByYear[year].map((pub) => (
-                  <div key={pub.id} className="publication-item">
-                    <h3 className="pub-title">{pub.title}</h3>
-                    {pub.summary && <p className="pub-summary">{pub.summary}</p>}
-                    {pub.authors && <p className="pub-authors">{pub.authors}</p>}
-                    <p className="pub-venue">{pub.publication}</p>
-                    {pub.note && <p className="pub-note">{pub.note}</p>}
-                    
-                    {/* Render action line container if valid references exist */}
-                    {(pub.pdfUrl || pub.url) && (
-                      <div className="pub-action-links">
-                        {pub.pdfUrl && (
-                          <a href={pub.pdfUrl} className="pub-action-link" target="_blank" rel="noopener noreferrer">
-                            PDF ↗
-                          </a>
-                        )}
-                        {pub.doi && (
-                          <a href={`https://doi.org/${pub.doi}`} className="pub-action-link" target="_blank" rel="noopener noreferrer">
-                            DOI ↗
-                          </a>
-                        )}
-                        {pub.url && (
-                          <a href={pub.url} className="pub-action-link" target="_blank" rel="noopener noreferrer">
-                            Article ↗
-                          </a>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                ))}
+      <section className="publication-list" aria-label="Research publications">
+        {publications.map(pub => (
+          <div key={pub.id} className="publication-year-section">
+            <h2 className="publication-year">{pub.year}</h2>
+            <article className="publication-item">
+            <h3 className="pub-title">
+              <a href={pub.url} target="_blank" rel="noopener noreferrer">{pub.title}</a>
+            </h3>
+            {pub.summary && <p className="pub-summary">{pub.summary}</p>}
+            <p className="pub-authors">{pub.authors}</p>
+            <p className="pub-venue">{pub.publication}</p>
+            <footer className="pub-footer">
+              <p className="pub-note">{pub.note}</p>
+              <div className="pub-action-links">
+                <a href={pub.pdfUrl} className="pub-action-link" target="_blank" rel="noopener noreferrer">PDF ↗</a>
+                {pub.doi && <a href={`https://doi.org/${pub.doi}`} className="pub-action-link" target="_blank" rel="noopener noreferrer">DOI ↗</a>}
+                <a href={pub.url} className="pub-action-link" target="_blank" rel="noopener noreferrer">Article ↗</a>
               </div>
-            </div>
-          ))}
-        </div>
+            </footer>
+            </article>
+          </div>
+        ))}
       </section>
     </div>
   );

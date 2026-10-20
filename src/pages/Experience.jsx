@@ -3,6 +3,21 @@ import './Experience.css';
 function Experience() {
   const experiences = [
     {
+      id: 3,
+      role: 'Undergraduate Researcher',
+      company: 'University of Florida - MALT Lab',
+      location: 'Gainesville, FL',
+      period: 'Jan 2025 - Present',
+      current: true,
+      description: [
+        'Developed and trained a car-centric simulation model on the UF supercomputer using Weights & Biases, optimizing collision detection algorithms at scale',
+        'Built a cross-university web platform for near-miss collision detection processing, leveraging Cloudflare tunneling for secure distributed access',
+        'Researcher at the Modern Artificial Intelligence and Learning Technologies (MALT) Lab under Dr. Sanjay Ranka',
+        'Used Slurm on UF and UVA HPC systems to train and benchmark YOLO models across architectures and computing environments',
+        'Communicated research methodologies and findings to a diverse academic audience at the Undergraduate Research Symposium'
+      ]
+    },
+    {
       id: 5,
       role: 'Intern',
       company: 'SCC Soft Computer',
@@ -12,20 +27,6 @@ function Experience() {
         'Developed and optimized Power BI and Tableau dashboards connected to Oracle databases with dynamic parameters and templates for seamless client deployment',
         'Debugged ETL processes, engineered SQL-driven data collection workflows, and transformed data pipelines to achieve consistent results across BI platforms',
         'Gained hands-on experience across the software development lifecycle, from requirements analysis and version control to testing, issue resolution, and production troubleshooting'
-      ]
-    },
-    {
-      id: 3,
-      role: 'Undergraduate Researcher',
-      company: 'University of Florida - MALT Lab',
-      location: 'Gainesville, FL',
-      period: 'Jan 2025 - Present',
-      description: [
-        'Developed and trained a car-centric simulation model on the UF supercomputer using Weights & Biases, optimizing collision detection algorithms at scale',
-        'Built a cross-university web platform for near-miss collision detection processing, leveraging Cloudflare tunneling for secure distributed access',
-        'Researcher at the Modern Artificial Intelligence and Learning Technologies (MALT) Lab under Dr. Sanjay Ranka',
-        'Used Slurm on UF and UVA HPC systems to train and benchmark YOLO models across architectures and computing environments',
-        'Communicated research methodologies and findings to a diverse academic audience at the Undergraduate Research Symposium'
       ]
     },
     {
@@ -44,7 +45,7 @@ function Experience() {
       role: 'Cofounder',
       company: 'Hydrodisc',
       location: 'Palm Harbor, FL',
-      period: 'Oct 2021 - Present',
+      period: 'Oct 2021 - 2024',
       description: [
         'Developed a mobile-integrated device that helps customers monitor water consumption and reduce dehydration through real-time reminders',
         'Won First Place in the NGT 360 Competition (2022-2023), securing $10,000 grant for product development',
@@ -63,7 +64,7 @@ function Experience() {
         'Greeted customers and assisted with bank-related inquiries',
         'Created a positive customer experience through quick and efficient service',
       ]
-    }
+    },
   ];
 
   return (
@@ -73,29 +74,26 @@ function Experience() {
       </header>
 
       <section className="experience-section" aria-label="Career timeline">
-        <ol className="timeline">
-          {experiences.map((exp) => (
-            <li key={exp.id} className="timeline-item">
-              <div className="exp-date">
-                <span className="exp-period">{exp.period}</span>
-                {exp.period.includes('Present') && <span className="exp-current">Ongoing</span>}
-              </div>
-              <span className="timeline-dot" aria-hidden="true"></span>
-              <article className="exp-card">
-                <header className="exp-header">
-                  <h2 className="exp-role">{exp.role}</h2>
-                  <p className="exp-company">{exp.company}</p>
-                  <p className="exp-location">{exp.location}</p>
-                </header>
-                <ul className="exp-description">
-                  {exp.description.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-            </li>
-          ))}
-        </ol>
+          <ol className="timeline">
+            {experiences.map(exp => (
+              <li key={exp.id} className="timeline-item">
+                <div className="exp-date">
+                  <span className="exp-period">{exp.period}</span>
+                </div>
+                <span className="timeline-dot" aria-hidden="true"></span>
+                <article className="exp-card">
+                  <header className="exp-header">
+                    <h3 className="exp-role">{exp.role}</h3>
+                    <p className="exp-company">{exp.company}</p>
+                    <p className="exp-location">{exp.location}</p>
+                  </header>
+                  <ul className="exp-description">
+                    {exp.description.map((item, index) => <li key={index}>{item}</li>)}
+                  </ul>
+                </article>
+              </li>
+            ))}
+          </ol>
       </section>
     </div>
   );
