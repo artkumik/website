@@ -1,78 +1,14 @@
-/* Section Base & Layout Wrapper */
-.contact-section {
-  margin-top: 0.6rem;
-}
-
-.contact-intro {
-  font-size: 0.95rem;
-  color: #c0c0c0;
-  max-width: 650px;
-  margin-bottom: 3rem;
-  line-height: 1.6;
-}
-
-/* Structural Data Grid Matrix */
-.contact-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 750px;
-}
-
-/* Consolidated Meta Rows */
-.contact-row {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 1.5rem;
-  align-items: baseline;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid #141414;
-}
-
-.contact-row:last-child {
-  border-bottom: none;
-}
-
-.contact-row h3 {
-  color: #909090;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 0;
-}
-
-.contact-content-block {
-  margin: 0;
-}
-
-/* Minimalist Action Link Details */
-.contact-action-link {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  border-bottom: 1px solid #262626;
-  padding-bottom: 2px;
-  transition: all 0.2s ease;
-}
-
-.contact-action-link:hover {
-  color: #ffffff;
-  border-bottom-color: #ffffff;
-}
-
-.contact-status-text {
-  color: #d0d0d0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* Responsive Tweak Shifts */
-@media (max-width: 768px) {
-  .contact-row {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
-    padding-bottom: 1.25rem;
-  }
+.contact-lead { color: var(--muted); font-size: .85rem; margin: .5rem 0 0; }
+.contact-details { width: 100%; max-width: 580px; }
+.contact-list { margin: 0; }
+.contact-detail { display: grid; grid-template-columns: 100px minmax(0, 1fr); align-items: baseline; gap: 1rem; padding: .75rem 0; border-bottom: 1px solid var(--line); }
+.contact-detail:first-child { padding-top: 0; }
+.contact-detail dt { color: var(--muted); font-size: .8rem; }
+.contact-detail dd { margin: 0; min-width: 0; font-size: .85rem; }
+.contact-detail a { display: inline-block; padding: .15rem 0; overflow-wrap: anywhere; text-underline-offset: 4px; }
+.contact-detail a span { font-size: .75rem; }
+.contact-location { color: var(--muted); font-size: .75rem; margin: 1rem 0 0; line-height: 1.7; }
+@media (max-width: 420px) {
+  .contact-detail { grid-template-columns: 75px minmax(0, 1fr); gap: .5rem; }
+  .contact-detail dd { font-size: .78rem; }
 }

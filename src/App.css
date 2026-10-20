@@ -1,60 +1,106 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root { color-scheme: dark; --accent: #74b9ed; --muted: #beb7a4; --line: #beb7a433; --link: #74b9ed; --secondary: #76d6a0; --mono: ui-monospace, "Cascadia Code", Consolas, "Liberation Mono", monospace; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #242321; color: #fffffc; -webkit-font-smoothing: antialiased; }
+.App { min-height: 100vh; background: #242321; color: #fffffc; font-family: var(--mono); font-size: 14px; line-height: 1.75; }
+.App main { min-height: 65vh; }
+.App a { color: var(--link); text-decoration: none; }
+.App a:hover { text-decoration: underline; color: #fffffc; }
+.App a:focus-visible, .App button:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.App .page-container { max-width: 960px; margin: 0 auto; padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+.App .navbar { background: #242321f5; border-bottom: 1px solid var(--line); padding: 1.1rem 2rem; max-width: 960px; margin: 0 auto; position: sticky; top: 0; font-family: var(--mono); }
+.navbar .nav-container { max-width: 896px; display: grid; grid-template-columns: 1fr auto; gap: .6rem; }
+.navbar .nav-logo { color: #fffffc; font-size: 1.4rem; letter-spacing: -.04em; font-weight: 700; }
+.navbar .nav-menu { grid-column: 1 / -1; gap: 0; }
+.navbar .nav-menu li + li { border-left: 1px solid #beb7a455; margin-left: .85rem; padding-left: .85rem; }
+.navbar .nav-link { color: var(--accent); font-size: .8rem; font-weight: 400; }
+.navbar .nav-link.active { color: var(--accent); text-decoration: underline; text-underline-offset: 5px; border: 0; padding-bottom: .25rem; }
+.App .page-title { color: #fffffc; font-family: var(--mono); font-size: clamp(1.7rem, 4vw, 2.1rem); line-height: 1.3; text-align: left; font-weight: 600; letter-spacing: -.045em; margin: .25rem 0 .6rem; padding: 0; border: 0; position: relative; }
+.App .page-title::after { display: none; }
+.App .page-intro { color: var(--muted); text-align: left; font-size: .85rem; margin: .5rem 0 0; }
+.App .section { margin: 0; }
+.App .section h2 { color: #fffffc; font-family: var(--mono); text-transform: none; letter-spacing: 0; font-size: 1.15rem; border: 0; margin: 0 0 .65rem; padding: 0; }
+.App .section p, .App .about-text { font-size: .9rem; color: #fffffc; line-height: 1.85; }
+.home { background: transparent; font-family: inherit; }
+.research-notes ul { padding-left: 1.4rem; margin: 0 0 1rem; }
+.research-notes li { margin-bottom: .3rem; }
+.research-notes p + p { margin-top: .8rem; }
+.App .skills-grid { gap: .65rem; }
+.App .skill-row { grid-template-columns: 155px 1fr; gap: 1rem; }
+.App .skill-row h3 { font-family: var(--mono); font-size: .85rem; color: #fffffc; }
+.App .skill-row p { font-size: .95rem; color: #beb7a4; line-height: 1.6; }
+.App .cert-item { gap: 1rem; font-size: .95rem; }
+.App .cert-issuer { color: var(--muted); }
+.about-closing { padding-top: 1rem; border-top: 1px solid var(--line); }
+.App .projects-intro { color: #beb7a4; font-size: .85rem; margin-bottom: 1.25rem; }
+.App .projects-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.App .project-card { background: #2f2d29; border: 1px solid var(--line); border-radius: 4px; padding: 1rem; }
+.App .project-card:hover { background: #3b3831; border-color: #74b9ed; transform: none; }
+.App .project-image-wrapper { height: 140px; border: 0; border-radius: 2px; }
+.App .project-img { opacity: 1; filter: none; display: block; object-fit: cover; }
+.App .project-title { font-family: var(--mono); font-size: 1rem; }
+.App .project-description { color: #beb7a4; font-size: .9rem; line-height: 1.6; }
+.App .project-meta { color: #beb7a4; font-family: var(--mono); }
+.App .project-type { color: #beb7a4; }
+.App .tech-tag { color: #beb7a4; border-color: #beb7a444; font-family: var(--mono); font-size: .65rem; }
+.App .hackathon-badge { color: #74b9ed; background: #74b9ed1a; border: 0; border-radius: 3px; font-family: var(--mono); font-size: .65rem; }
+.App .year-group { grid-template-columns: 60px 1fr; border-color: var(--line); }
+.App .year-heading { color: var(--muted); font-family: var(--mono); }
+.App .publication-item { padding: 1rem; border: 1px solid var(--line); background: #2f2d29; border-radius: 4px; }
+.App .pub-title { color: #fffffc; font-family: var(--mono); font-size: 1.05rem; line-height: 1.5; }
+.App .pub-summary { color: #beb7a4; font-size: .95rem; line-height: 1.65; margin: .5rem 0 .8rem; }
+.App .pub-authors { color: #beb7a4; }
+.App .pub-venue, .App .pub-note { color: #beb7a4; }
+.App .pub-action-link { color: var(--link); font-family: var(--mono); font-size: .8rem; }
+.App .timeline-item::before { background: #beb7a466; }
+.App .timeline-dot { border-color: #242321; box-shadow: 0 0 0 2px #beb7a466; }
+.App .exp-card { background: #2f2d29; border-color: var(--line); border-radius: 4px; }
+.App .exp-role { font-family: var(--mono); }
+.App .exp-period, .App .exp-current { font-family: var(--mono); color: #beb7a4; }
+.App .exp-current { border-color: #74b9ed66; }
+.App .exp-description li { color: #beb7a4; }
+.App .exp-description li::marker { color: #74b9ed; }
+.App .exp-location { color: #beb7a4; }
+.App .site-footer { border-top: 1px solid var(--line); text-align: center; font-family: var(--mono); color: #beb7a4; padding: 1.5rem; margin-top: 1rem; font-size: .8rem; }
+.site-footer p { margin: 0 0 .35rem; }
+.site-footer div { display: flex; gap: 1.5rem; justify-content: center; }
+.skip-link { position: fixed; left: 1rem; top: -100px; z-index: 200; background: #242321; padding: .5rem 1rem; }
+.skip-link:focus { top: .5rem; }
+@media (max-width: 768px) {
+ .App .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ .App .page-container { padding: 1.75rem 1.25rem; gap: 1.25rem; }
+ .App .navbar { padding: 1rem 1.25rem; }
+ .navbar .nav-menu { display: none; background: #242321; border: 1px solid var(--line); padding: .5rem 1rem; top: calc(100% + 1rem); border-radius: 4px; }
+ .navbar .nav-menu.active { display: flex; max-height: none; }
+ .navbar .nav-menu li + li { margin-left: 0; padding-left: 0; border-left: 0; }
+ .navbar .hamburger { grid-column: 2; grid-row: 1; }
+ .App .year-group, .App .skill-row { grid-template-columns: 1fr; gap: .5rem; }
+ .App .cert-item { gap: .1rem; }
 }
+@media (max-width: 600px) { .App .projects-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
 
-.App {
-  min-height: 100vh;
-  background: #000000;
-  color: #d0d0d0;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    sans-serif;
-}
+.navbar .nav-logo { display: inline-flex; align-items: center; gap: .8rem; }
+.brand-mark { color: #74b9ed; font-size: 1.05rem; font-weight: 600; letter-spacing: -.1em; border: 1px solid #74b9ed66; padding: .15rem .4rem; line-height: 1.6; }
+.App .site-footer { max-width: 896px; margin: 1rem auto 0; background: transparent; }
+.App .project-description { font-size: .78rem; }
+.App .project-title { font-size: .9rem; }
+.App .exp-description li { font-size: .82rem; }
+.App .exp-role { font-size: 1.05rem; }
+.App .exp-company { font-size: .85rem; }
+.App .section .skill-row p { font-size: .82rem; }
+.App .cert-item { font-size: .82rem; }
 
-.page-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2.5rem 2rem;
-  line-height: 1.6;
-}
+.navbar .nav-link.active { text-decoration-color: var(--secondary); }
+.App .timeline-dot { background: var(--accent); }
+.App .exp-current { color: var(--accent); }
+.App .project-title, .App .exp-role, .App .cert-title { color: #fffffc; }
+.App .project-image-wrapper { background: #242321; }
+.App .hamburger span { background: #fffffc; }
+::selection { background: #74b9ed; color: #000000; }
 
-.page-title {
-  font-size: 2.2rem;
-  margin-bottom: 0.4rem;
-  color: #ffffff;
-  font-weight: 400;
-  border-bottom: 1px solid #333333;
-  padding-bottom: 0.8rem;
-}
-
-.section {
-  margin-bottom: 1.8rem;
-}
-
-.section h2 {
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
-  color: #ffffff;
-  font-weight: 400;
-  border-bottom: 1px solid #333333;
-  padding-bottom: 0.5rem;
-}
-
-.section p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #d0d0d0;
-  opacity: 1;
-}
-
-a {
-  color: #b0b0b0;
-  text-decoration: underline;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: #ffffff;
-}
+.project-preview { margin: 0 0 .85rem; }
+.App .project-preview .project-image-wrapper { margin-bottom: 0; border-radius: 3px; background: #181817; }
+.App .preview-math .project-img { object-position: center top; }
+.App .preview-game .project-img, .App .preview-chart .project-img { object-fit: contain; background: #fffffc; }
+.App .preview-traffic .project-img { object-position: center 40%; }
+.App .project-card:hover .project-img { opacity: 1; }

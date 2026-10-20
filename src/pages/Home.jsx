@@ -1,89 +1,58 @@
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 function Home() {
-  const metrics = [
-    { value: '3.73', label: 'Undergraduate GPA' },
-    { value: '2+', label: 'Years Research Experience' },
-    { value: '$10K', label: 'Venture Grant Funding' },
-    { value: '1', label: 'Academic Publication' }
-  ];
-
   const skills = [
-    { category: 'Research Domains', items: 'Computer Vision (Object Detection), Intelligent Transportation Systems (ITS), Reinforcement Learning, High-Performance Computing (HPC)' },
-    { category: 'Programming & Libraries', items: 'Python, SQL, Power BI, R, pandas, PyTorch, TensorFlow, Linux/Unix, Docker, HTML/CSS, Java' },
-    { category: 'Analytical & Methodological', items: 'Data Analysis, Machine Learning, Deep Learning, Data Visualization, Business Analytics, Statistics' },
-    { category: 'Languages', items: 'Polish, English' }
-  ];
-
-  const certifications = [
-    { title: 'Fundamentals of Deep Learning', issuer: 'NVIDIA' },
-    { title: 'Building Transformer-Based Natural Language Processing Applications', issuer: 'NVIDIA' },
-    { title: 'SQL Essential Training', issuer: 'LinkedIn' },
-    { title: 'Power BI Essential Training', issuer: 'LinkedIn' }
+    { category: 'Programming', items: 'Python, SQL, R, Java, HTML/CSS' },
+    { category: 'ML & data', items: 'PyTorch, TensorFlow, pandas, Power BI, Tableau' },
+    { category: 'Systems', items: 'Linux / Unix, Docker, HPC' },
+    { category: 'Focus', items: 'Computer vision, reinforcement learning, statistics, transportation' }
   ];
 
   return (
     <div className="home">
       <div className="page-container">
         
-        <header className="hero">
-          <h1 className="hero-title">Artur Kumik</h1>
-          <p className="hero-subtitle">Data Science | Machine Learning | Research</p>
-          
-          <div className="hero-contact-row">
-            <span className="hero-link meta-link">
-              Palm Harbor, FL
-            </span>
-          </div>
+        <header className="article-heading">
+          <h1 className="page-title">About me</h1>
+          <p className="page-intro">Data science · University of Florida</p>
         </header>
 
         <section className="section">
-          <h2>About Me</h2>
           <p className="about-text">
-            Third-year Data Science major at the University of Florida (GPA: 3.73) with research experience in machine learning and a strong background in Python, R, and TensorFlow. Passionate about applying analytical skills to solve real-world problems through data-driven solutions.
+            I'm Artur Kumik, a data science student at the University of Florida. I work in the MALT Lab on traffic behavior and near-miss detection. I've trained models on UF and UVA computing clusters and built tools to help researchers process collision data. I also worked with SQL, Power BI, and Tableau during my internships at SCC Soft Computer.
           </p>
           
-          <div className="metrics-row">
-            {metrics.map((metric, index) => (
-              <div key={index} className="metric-item">
-                <span className="metric-value">{metric.value}</span>
-                <span className="metric-label">{metric.label}</span>
-              </div>
-            ))}
-          </div>
+
         </section>
 
-        <section className="section">
-          <h2>Technical & Research Profile</h2>
-          <div className="skills-grid">
-            {skills.map((skill, index) => (
-              <div key={index} className="skill-row">
-                <h3>{skill.category}</h3>
-                <p>{skill.items}</p>
-              </div>
-            ))}
-          </div>
+        <section className="section research-notes">
+          <h2>What I work on</h2>
+          <ul>
+            <li>Training car-centric traffic simulation models on UF’s supercomputer.</li>
+            <li>Building tools for researchers to process near-miss collision data.</li>
+            <li>Testing computer vision models for traffic intersection footage.</li>
+          </ul>
+          <p>Our latest preprint, <a href="https://arxiv.org/abs/2608.25275" target="_blank" rel="noopener noreferrer">PhaseShift</a>, looks at sharing a traffic-behavior model across intersections with different layouts.</p>
+          <p>I also build <Link to="/projects">hackathon projects</Link>, including tools for checking handwritten math and tracking exercise form.</p>
         </section>
+        <div className="profile-details">
+          <section className="section" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Skills</h2>
+            <dl className="profile-skills">
+              {skills.map(({ category, items }) => (
+                <div key={category}>
+                  <dt>{category}</dt>
+                  <dd>{items}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="spoken-languages">I speak English and Polish.</p>
+          </section>
 
-        <section className="section">
-          <h2>Certifications</h2>
-          <div className="certifications-list">
-            {certifications.map((cert, index) => (
-              <div key={index} className="cert-item">
-                <span className="cert-title">{cert.title}</span>
-                <span className="cert-issuer">{cert.issuer}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Minimalist Funnel Link */}
-        <div className="next-step-container">
-          <a href="/projects" className="minimal-nav-link">
-            View Projects <span>&rarr;</span>
-          </a>
         </div>
-        
+
+        <p className="about-closing">For more, see my <Link to="/experience">experience</Link> and <Link to="/publications">publications</Link>, or <Link to="/contact">get in touch</Link>.</p>
       </div>
     </div>
   );

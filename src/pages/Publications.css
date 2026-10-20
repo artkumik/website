@@ -6,15 +6,15 @@
 .publications-list {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 1.75rem;
 }
 
 /* Structural Year Column Blocks */
 .year-group {
   display: grid;
   grid-template-columns: 100px 1fr;
-  gap: 2rem;
-  padding-top: 2rem;
+  gap: 1.25rem;
+  padding-top: 1.25rem;
   border-top: 1px solid #161616;
 }
 
@@ -111,7 +111,7 @@
   }
 
   .year-publications {
-    gap: 2rem;
+    gap: 1.25rem;
   }
 
   .pub-title {

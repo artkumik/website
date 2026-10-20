@@ -3,14 +3,28 @@ import './Experience.css';
 function Experience() {
   const experiences = [
     {
+      id: 5,
+      role: 'Intern',
+      company: 'SCC Soft Computer',
+      location: 'Clearwater, FL · On-site',
+      period: 'Jun 2026 - Aug 2026',
+      description: [
+        'Developed and optimized Power BI and Tableau dashboards connected to Oracle databases with dynamic parameters and templates for seamless client deployment',
+        'Debugged ETL processes, engineered SQL-driven data collection workflows, and transformed data pipelines to achieve consistent results across BI platforms',
+        'Gained hands-on experience across the software development lifecycle, from requirements analysis and version control to testing, issue resolution, and production troubleshooting'
+      ]
+    },
+    {
       id: 3,
       role: 'Undergraduate Researcher',
       company: 'University of Florida - MALT Lab',
       location: 'Gainesville, FL',
       period: 'Jan 2025 - Present',
       description: [
+        'Developed and trained a car-centric simulation model on the UF supercomputer using Weights & Biases, optimizing collision detection algorithms at scale',
+        'Built a cross-university web platform for near-miss collision detection processing, leveraging Cloudflare tunneling for secure distributed access',
         'Researcher at the Modern Artificial Intelligence and Learning Technologies (MALT) Lab under Dr. Sanjay Ranka',
-        'Trained a Darknet YOLO v4 model for near miss detection on multi-GPU nodes with UF and UVA High-Performance Computer (HPC) environments',
+        'Used Slurm on UF and UVA HPC systems to train and benchmark YOLO models across architectures and computing environments',
         'Communicated research methodologies and findings to a diverse academic audience at the Undergraduate Research Symposium'
       ]
     },
@@ -54,36 +68,34 @@ function Experience() {
 
   return (
     <div className="page-container">
-      <h1 className="page-title">Professional Experience</h1>
-      
-      <section className="experience-section">
-        <div className="timeline">
+      <header>
+        <h1 className="page-title">Experience</h1>
+      </header>
+
+      <section className="experience-section" aria-label="Career timeline">
+        <ol className="timeline">
           {experiences.map((exp) => (
-            <div key={exp.id} className="timeline-item">
-              <div className="timeline-dot"></div>
-              
-              <div className="exp-header">
-                <div>
-                  <h3 className="exp-role">
-                    {exp.role}
-                    <span className="exp-company">— {exp.company}</span>
-                  </h3>
-                </div>
-                
-                <div className="exp-meta-compact">
-                  <span className="exp-period">{exp.period}</span>
-                  <span className="exp-location">{exp.location}</span>
-                </div>
+            <li key={exp.id} className="timeline-item">
+              <div className="exp-date">
+                <span className="exp-period">{exp.period}</span>
+                {exp.period.includes('Present') && <span className="exp-current">Ongoing</span>}
               </div>
-              
-              <ul className="exp-description">
-                {exp.description.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
+              <span className="timeline-dot" aria-hidden="true"></span>
+              <article className="exp-card">
+                <header className="exp-header">
+                  <h2 className="exp-role">{exp.role}</h2>
+                  <p className="exp-company">{exp.company}</p>
+                  <p className="exp-location">{exp.location}</p>
+                </header>
+                <ul className="exp-description">
+                  {exp.description.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
     </div>
   );

@@ -4,15 +4,42 @@ import './Projects.css';
 function Projects() {
   const projects = [
     {
+      id: 7,
+      title: 'Snap Solve',
+      description: 'Turns handwritten math into LaTeX and checks each step using a fine-tuned TexTeller model, SymPy, and Gemini.',
+      technologies: ['FastAPI', 'PyTorch', 'TexTeller', 'SymPy', 'Gemini'],
+      timeline: 'Hackathon',
+      type: 'AI / Education',
+      image: ProjectImages.snapSolve,
+      imageAlt: 'Handwritten equations beside feedback identifying an incorrect step',
+      previewType: 'math',
+      url: 'https://github.com/artkumik/snap-solve',
+      hackathon: 'SwampHacks XII'
+    },
+    {
+      id: 6,
+      title: 'Form Fitter',
+      description: 'Real-time exercise form tracking and personalized workout scheduling. Built at Hacklytics 2026 at Georgia Tech.',
+      technologies: ['Flask', 'MediaPipe', 'Gemini', 'scikit-learn'],
+      timeline: '2026',
+      type: 'AI / Fitness',
+      image: ProjectImages.formFitter,
+      imageAlt: 'Push-up pose tracking with a repetition counter and form feedback',
+      previewType: 'pose',
+      url: 'https://github.com/artkumik/Form-Fitter',
+      hackathon: 'Hacklytics 2026'
+    },
+    {
       id: 1,
-      title: 'YOLO v4 Near Miss Detection',
-      description: 'Darknet YOLO v4 model for near miss detection on multi-GPU HPC clusters at UF and UVA.',
-      technologies: ['Python', 'TensorFlow', 'YOLO v4', 'HPC'],
+      title: 'YOLO Model Benchmarking',
+      description: 'Automated training and benchmarking of YOLO models on UF and UVA HPC clusters, comparing architectures and visualizing performance.',
+      technologies: ['Python', 'YOLO', 'Slurm', 'HPC'],
       timeline: 'Jan 2025 - Present',
       type: 'Research',
-      // Using the barrel import, with a fallback string just in case
-      image: ProjectImages.yoloDetection || '/images/yolo-detection.jpg',
-      url: 'https://github.com/artkumik'
+      image: ProjectImages.yoloDetection,
+      imageAlt: 'Traffic intersection camera footage with vehicle detection boxes',
+      previewType: 'traffic',
+      url: 'https://github.com/jpfleischer/chocolatechip'
     },
     {
       id: 3,
@@ -21,7 +48,9 @@ function Projects() {
       technologies: ['Python', 'sklearn', 'Pandas'],
       timeline: 'Academic',
       type: 'Data Analysis',
-      image: ProjectImages.londonWeather || '../assets/projects/london-weather.png',
+      image: ProjectImages.londonWeather,
+      imageAlt: 'Scatter plot comparing actual and predicted weather values',
+      previewType: 'chart',
       url: 'https://github.com/artkumik/LondonWeatherAnalysis'
     },
     {
@@ -31,30 +60,24 @@ function Projects() {
       technologies: ['Python', 'Pygame', 'NumPy'],
       timeline: 'Academic',
       type: 'AI/ML',
-      image: ProjectImages.rlGameplay || '/images/rl-gameplay.jpg',
+      image: ProjectImages.rlGameplay,
+      imageAlt: 'Tic-tac-toe interface with options to play against AI',
+      previewType: 'game',
       url: 'https://github.com/artkumik/tictactoe'
     },
-    // {
-    //   id: 4,
-    //   title: 'Tic-Tac-Toe LLM Arena', 
-    //   description: 'A web application that showcases strategic gameplay with AI-powered players competing in classic Tic-Tac-Toe matches.[cite: 1]',
-    //   technologies: ['Python', 'Flask', 'FastAPI', 'OpenAI', 'JavaScript', 'Bootstrap'], 
-    //   timeline: 'Present',
-    //   type: 'Artificial Intelligence / Web Development',
-    //   image: ProjectImages.tictactoeArenaRender || '/images/tictactoe-arena-render.jpg',
-    //   url: '#'
-    // },
-    // {
-    //   id: 5,
-    //   title: 'Hydrodisc',
-    //   description: 'Mobile IoT device for water consumption monitoring. Won NGT 360 Competition.',
-    //   technologies: ['IoT', 'Mobile', 'Product Design'],
-    //   timeline: 'Oct 2021 - Present',
-    //   type: 'Entrepreneurship',
-    //   image: ProjectImages.hydrodiscRender || '/images/hydrodisc-render.jpg',
-    //   url: '#'
-    // },
-
+    {
+      id: 8,
+      title: 'Bill-y the Investo-Gator',
+      description: 'Analyzes spending from bank CSVs and answers budgeting questions with AI chat and spoken responses.',
+      technologies: ['Python', 'Flask', 'Gemini', 'ElevenLabs', 'JavaScript'],
+      timeline: 'Jan 2026',
+      type: 'AI / Finance',
+      image: ProjectImages.billY,
+      imageAlt: 'Bill-y finance assistant homepage with Chat and Plan options',
+      previewType: 'finance',
+      url: 'https://github.com/artkumik/SwampHacksXI-TeamJAN',
+      hackathon: 'SwampHacks XI'
+    },
   ];
 
   return (
@@ -62,14 +85,11 @@ function Projects() {
       <h1 className="page-title">Projects</h1>
       
       <section className="projects-section">
-        <p className="projects-intro">
-          A collection of research initiatives, computer vision benchmarks, and analytical applications in machine learning and intelligent systems. Select any project to view details.
-        </p>
-
-        <div className="projects-grid">
+        <p className="projects-intro">Click a project to view its code on GitHub.</p>
+<div className="projects-grid">
           {projects.map((project) => (
+            <div key={project.id} className={`project-entry ${project.hackathon ? 'hackathon-project' : ''}`}>
             <a
-              key={project.id}
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -77,31 +97,22 @@ function Projects() {
             >
               <div className="project-card">
                 
-                <div className="project-image-wrapper">
-                  <img 
-                    src={project.image} 
-                    alt={`${project.title} preview`} 
-                    className="project-img" 
-                    loading="lazy"
-                    /* Added inline styles to force the image to fit the box cleanly */
-                    style={{ 
-                      width: '100%', 
-                      height: '100%', 
-                      objectFit: 'cover', 
-                      objectPosition: 'center',
-                      display: 'block'
-                    }}
-                  />
-                </div>
+                <figure className={`project-preview preview-${project.previewType}`}>
+                  <div className="project-image-wrapper">
+                    <img
+                      src={project.image}
+                      alt={project.imageAlt}
+                      className="project-img"
+                      loading="lazy"
+                    />
+                  </div>
+                </figure>
 
                 <div className="project-content">
                   <div>
                     <div className="project-card-header">
                       <h3 className="project-title">{project.title}</h3>
-                      <div className="project-meta">
-                        <span className="project-type">{project.type}</span>
-                        <span className="project-timeline">{project.timeline}</span>
-                      </div>
+                      {project.hackathon && <span className="hackathon-badge">{project.hackathon}</span>}
                     </div>
                     <p className="project-description">{project.description}</p>
                   </div>
@@ -115,6 +126,8 @@ function Projects() {
                 
               </div>
             </a>
+
+            </div>
           ))}
         </div>
       </section>
