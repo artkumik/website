@@ -178,6 +178,9 @@
 .hackathon-badge { align-self: flex-start; display: inline-flex; align-items: center; gap: .35rem; color: #c9efd6; font-size: .68rem; font-weight: 600; padding: .2rem .5rem; border: 1px solid #4a6854; border-radius: 4px; background: #233c2b; margin-bottom: .65rem; }
 .project-meta { flex-wrap: wrap; }
 
-.project-card-header .hackathon-badge { margin: .25rem 0 0; }
+.project-footer { margin-top: auto; }
+.project-event { min-height: 2rem; margin-bottom: .35rem; }
+.project-event .hackathon-badge { margin: 0; }
+.project-footer .project-tech { margin-top: 0; }
 
 .project-preview { flex-shrink: 0; }

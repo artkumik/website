@@ -19,7 +19,7 @@ function Projects() {
     {
       id: 6,
       title: 'Form Fitter',
-      description: 'Real-time exercise form tracking and personalized workout scheduling. Built at Hacklytics 2026 at Georgia Tech.',
+      description: 'Real-time exercise form tracking and personalized workout scheduling.',
       technologies: ['Flask', 'MediaPipe', 'Gemini', 'scikit-learn'],
       timeline: '2026',
       type: 'AI / Fitness',
@@ -112,15 +112,19 @@ function Projects() {
                   <div>
                     <div className="project-card-header">
                       <h3 className="project-title">{project.title}</h3>
-                      {project.hackathon && <span className="hackathon-badge">{project.hackathon}</span>}
                     </div>
                     <p className="project-description">{project.description}</p>
                   </div>
                   
-                  <div className="project-tech">
-                    {project.technologies.map((tech, index) => (
-                      <span key={index} className="tech-tag">{tech}</span>
-                    ))}
+                  <div className="project-footer">
+                    <div className="project-event">
+                      {project.hackathon && <span className="hackathon-badge">{project.hackathon}</span>}
+                    </div>
+                    <div className="project-tech">
+                      {project.technologies.map((tech, index) => (
+                        <span key={index} className="tech-tag">{tech}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
                 
